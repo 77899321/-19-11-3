@@ -1,0 +1,60 @@
+using System;
+
+namespace money
+{
+    class Money
+    {
+        public string currencyName;
+        public int wholePart;
+        public int fractionalPart;
+
+        public void ShowCurrency()
+        {
+            Console.WriteLine(
+                            "Рублей: " + wholePart +
+                            " / Копеек: " + fractionalPart +
+                            "\n"
+                            );
+        }
+
+        public void CurrencyTransfer(string cur)
+        {
+            double wholeEuro = 87;
+            double fractionalEuro = 98;
+
+            double wholeUsd = 78;
+            double fractionalUsd = 77;
+
+            if (cur == "euro" || cur == "usd")
+            {
+                switch (cur)
+                {
+                    case "euro":
+                        Console.WriteLine("Евро: " + (wholePart / wholeEuro));
+                        Console.WriteLine("Центы: " + (fractionalPart / fractionalEuro));
+                        break;
+                    case "usd":
+                        Console.WriteLine("Доллар: " + (wholePart / wholeUsd));
+                        Console.WriteLine("Центы: " + (fractionalPart / fractionalUsd));
+                        break;
+                }
+            }
+            else Console.WriteLine("Ошибка");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Money currency = new Money();
+
+            currency.currencyName = "Рубль / копейки";
+            currency.wholePart = 157;
+            currency.fractionalPart = 37;
+            currency.ShowCurrency();
+
+            currency.CurrencyTransfer("euro");
+        }
+    }
+}
